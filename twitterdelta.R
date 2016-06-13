@@ -2,7 +2,8 @@
 #json gives problems. maybe with rjson better results. 
 library(plyr)
 
-library(twitteR)
+source("http://biostat.jhsph.edu/~jleek/code/twitterMap.R")
+#library(twitteR)
 #library(RJSONIO)
 #library(rjson)
 library(ROAuth)
@@ -12,7 +13,8 @@ requestURL <- "https://api.twitter.com/oauth/request_token"
 accessURL = "http://api.twitter.com/oauth/access_token"
 authURL = "http://api.twitter.com/oauth/authorize"
 consumerKey = "yourtwitterusername"
-consumerSecret = yourtwitterpasword # type it here.
+#consumerSecret = yourtwitterpasword # type it here.
+
 
 #ratelimiting may be the problem. 
 getURL( "https://api.twitter.com/1/account/rate_limit_status.json") # to know the blacklist status of tyour IP/login. 

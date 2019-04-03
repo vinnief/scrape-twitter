@@ -4,7 +4,13 @@
 # Example code in package build process
 *-Ex.R
 .Rproj.user
+*.R~
+*.R.bak
 
 #permissions
 .perm
 /*.perm
+#javascript and css and png files from html
+*.js
+*.css
+*.png

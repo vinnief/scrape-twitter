@@ -5,6 +5,7 @@ library(plyr)
 library(twitteR)
 #library(RJSONIO)
 #library(rjson)
+
 library(ROAuth)
 #library(RCurl)
 #if you need to authentify
@@ -23,19 +24,18 @@ twitCred <- OAuthFactory$new(consumerKey=consumerKey,
                              accessURL=accessURL,
                              authURL=authURL)
 twitCred
+twitCred$handshake()
 #to authorize an app, get an app auth token and 
 #To enable the connection, please direct your web browser to: 
 #  https://api.twitter.com/oauth/authorize?oauth_token=xxxx
-#When complete, record the PIN given to you and provide it here: xxxxxx
-
-#
+#When complete, record the PIN and provide it here: xxxxxx
 download.file(url="http://curl.haxx.se/ca/cacert.pem",
+#
               destfile="cacert.perm")
-twitCred$handshake()#cainfo="cacert.perm")
+twitCred$handshake(cainfo="cacert.perm")
 registerTwitterOAuth(twitCred)
 
-rateLimit<-   rateLimitInfoFactory$show()
-  
+rateLimit<- twListToDF(rateLimitInfoFactory$show())
 rateLimit$hourlyLimit
 
 publicTimeline()

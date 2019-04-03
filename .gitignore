@@ -4,3 +4,7 @@
 # Example code in package build process
 *-Ex.R
 .Rproj.user
+#javascript and css and png files from html
+.js
+.css
+.png
